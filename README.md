@@ -6,9 +6,9 @@
 
 ## Developer info
 
-* Full name:
-* B00/B01 number:
-* Dal email address:
+* Full name: Alex Russell
+* B00/B01 number: B00920458
+* Dal email address: alexrussell@dal.ca
 
 ## Gitlab assignment folder
 
