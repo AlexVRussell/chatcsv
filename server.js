@@ -2,7 +2,6 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Load responses from CSV file at startup
 let responses = [];
 try {
   const csvData = fs.readFileSync('responses.csv', 'utf8');
@@ -31,7 +30,17 @@ try {
   console.error('Error loading responses.csv:', err);
 }
 
-// Find matching response based on keyword
+function logChatInteraction(userMessage, botResponse) {
+  const timestamp = new Date().toISOString();
+  const logEntry = timestamp + ',' + userMessage + ',' + botResponse + '\n';
+  
+  fs.appendFile('chatlog.csv', logEntry, function(err) {
+    if (err) {
+      console.error('Error writing to chatlog.csv:', err);
+    }
+  });
+}
+
 function findResponse(userMessage) {
   const msg = userMessage.toLowerCase();
   
@@ -61,13 +70,9 @@ function findResponse(userMessage) {
   };
 } 
 
-// Need to run a check for if the keyword is joke to not prompt a redirect, because its parts[2] is more text, not a path
-
-// Create HTTP server
 const server = http.createServer(function(req, res) {
   console.log('Request:', req.method, req.url);
   
-  // Handle POST /chat endpoint
   if (req.method === 'POST' && req.url === '/chat') {
     let body = '';
     
@@ -81,6 +86,9 @@ const server = http.createServer(function(req, res) {
         const message = data.message;
         const response = findResponse(message);
         
+        // Loging chat interaction
+        logChatInteraction(message, response.message);
+        
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(response));
       } catch (err) {
@@ -91,7 +99,6 @@ const server = http.createServer(function(req, res) {
     return;
   }
   
-  // Serve static files
   let filePath;
   
   if (req.url === '/') {
@@ -100,8 +107,6 @@ const server = http.createServer(function(req, res) {
     const reqPath = req.url.substring(1);
     filePath = path.join(__dirname, reqPath);
   }
-  
-  console.log('Trying to serve:', filePath);
   
   fs.readFile(filePath, function(err, data) {
     if (err) {

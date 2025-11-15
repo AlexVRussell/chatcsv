@@ -12,16 +12,15 @@
 
 ## Gitlab assignment folder
 
-* Link to the Gitlab project folder:
+* Link to the Gitlab project folder: https://git.cs.dal.ca/courses/2025-Fall/csci-2170/assignments/a2/russell2 
 
 ## Application name and description
 
 * Include list of features implemented
 - Including a one of the three key words in your prompt will follow with a reply + link to the respective keyword.
-- 
-
-* Any APIs used/created and their URLs.
-* Any additional notes or considerations.
+- Saves past conversations and theme/name preferences via local storage.
+- Added some personalization, for example when you enter your name and refresh the bot will greet you, referring 
+to your name
 
 ## Setup and test instructions
 
@@ -32,6 +31,8 @@ Step 3: run in terminal `node ./server.js`
 Step 4: Follow localhost link to your choosen browser
 Step 5: Ask away :)
 
-## References/citations
+## Citations
+- Kantor, I. (n.d.). LocalStorage, SessionStorage. https://javascript.info/localstorage (Helping with preferences and more local storage)
+- Working with objects - JavaScript | MDN. (n.d.). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects (For making the settings object)
+- W3Schools.com. (n.d.-c). https://www.w3schools.com/jsref/prop_win_localstorage.asp (Learning more about local storage)
 
-1. APA/ACM/IEEE format

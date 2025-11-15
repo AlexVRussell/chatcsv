@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ChatCSV Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatCSV</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>ChatCSV Bot</h1>
-  
-  <div id="messages"></div>
-  
-  <input type="text" id="input" placeholder="Type a message">
-  <button id="send">Send</button>
+  <div class="container mt-5">
+    <h1>ChatCSV </h1>
+    
+    <div class="card mb-3">
+      <div class="card-body">
+        <h2>Settings</h2>
+        <label>Name: <input type="text" id="userName" class="form-control" placeholder="Enter your name"></label>
+        <label>Theme: 
+          <select id="theme" class="form-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <button id="saveSettings" class="bg-primary rounded">Save</button>
+        <button id="clearHistory" class="bg-primary rounded">Clear Chat</button>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-body" style="height: 400px;">
+        <div id="messages"></div>
+      </div>
+    </div>
+    
+    <div class="input-group">
+      <input type="text" id="input" class="form-control" placeholder="Type a message">
+      <button id="send" class="btn btn-primary">Send</button>
+    </div>
+  </div>
 
   <script src="/public/script.js"></script>
 </body>
