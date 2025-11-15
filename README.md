@@ -1,5 +1,3 @@
-# CSCI 2170: Intro to Server-Side Scripting
-
 ## Assignment
 
 * Assignment 2
@@ -9,10 +7,6 @@
 * Full name: Alex Russell
 * B00/B01 number: B00920458
 * Dal email address: alexrussell@dal.ca
-
-## Gitlab assignment folder
-
-* Link to the Gitlab project folder: https://git.cs.dal.ca/courses/2025-Fall/csci-2170/assignments/a2/russell2 
 
 ## Application name and description
 
